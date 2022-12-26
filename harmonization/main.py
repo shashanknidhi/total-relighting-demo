@@ -5,7 +5,7 @@ from PIL import Image
 import torch
 import torch.nn.functional as F
 import torchvision.transforms.functional as tf
-from src import model
+from .src import model
 def get_harmonized(composite_img,mask_img):
     comp = Image.open(composite_img).convert('RGB')
     mask = Image.open(mask_img).convert('1')
