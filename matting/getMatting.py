@@ -8,9 +8,9 @@ import torch
 import torch.nn as nn
 from torchvision.utils import save_image
 
-from model.model import HumanSegment, HumanMatting
-import utils
-import inference
+from .model.model import HumanSegment, HumanMatting
+from . import utils
+from . import inference
 
 
 def Matting(image_path):
