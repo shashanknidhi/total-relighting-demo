@@ -7,7 +7,7 @@ import torch.nn.functional as F
 import torchvision.transforms as transforms
 
 
-import utils
+from . import utils
 
 pil_to_tensor = transforms.Compose(
     [
