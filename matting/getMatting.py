@@ -17,7 +17,7 @@ def Matting(image_path):
 
     model = HumanMatting(backbone='resnet50')
     model = nn.DataParallel(model).cuda().eval()
-    model.load_state_dict(torch.load("./pretrained/SGHM-ResNet50.pth"))
+    model.load_state_dict(torch.load("matting/pretrained/SGHM-ResNet50.pth"))
 
     with Image.open(image_path) as img:
         img = img.convert("RGB")
