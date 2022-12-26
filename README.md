@@ -1,2 +1,2 @@
-# total-reoighting-demo
+# total-relighting-demo
  
