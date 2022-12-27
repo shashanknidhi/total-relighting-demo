@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 import torch
 from torchvision import transforms
-from compose import compose_images
+from .compose import compose_images
 from loader import dataset_dict, get_loader
 from loader.utils import gen_composite_image
 
