@@ -41,6 +41,10 @@ def main(foreground,background):
     # Input: output_matting/foreground.png, input/background.png, output_matting/fg_mask.png
     # Output: output_object_placement/composite_image.png output_object_placement/composite_mask.png
     #place(foreground='output_matting/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png')
+    os.mkdir('object_placement/result')
+    os.mkdir('object_placement/result/graconet')
+    os.mkdir('object_placement/result/graconet/models')
+    shutil.copy('/content/drive/MyDrive/total-relighting-demo/11.pth','object_placement/result/graconet/models')
     place()
     #Harmonization
     # Input: output_object_placement/composite_image.png output_object_placement/composite_mask.png
