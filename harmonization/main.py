@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 import torchvision.transforms.functional as tf
 from .src import model
-def get_harmonized(composite_img,mask_img):
+def get_harmonized(composite_img='output_object_placement/composite_image.png',mask_img='output_object_placement/composite_mask.png'):
     comp = Image.open(composite_img).convert('RGB')
     mask = Image.open(mask_img).convert('1')
     if comp.size[0] != mask.size[0] or comp.size[1] != mask.size[1]:
