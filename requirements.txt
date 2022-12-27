@@ -4,3 +4,17 @@ torch
 torchvision
 Pillow
 kornia
+cffi
+cython
+easydict
+einops
+imageio
+lpips==0.1.4
+matplotlib
+msgpack
+pyyaml==5.1
+scipy==1.2.1
+tensorboard_logger
+tensorboardX
+torchsummary
+tqdm
