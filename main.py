@@ -1,5 +1,5 @@
 # Import Statements
-import os
+import os, shutil
 from PIL import Image
 # Functions: Matting, Obj_placement, harmonization
 from matting.getMatting import Matting
@@ -14,6 +14,9 @@ def main(foreground,background):
     #Save foreground and background images to input dir as input/foreground.png and background.png
     foreground.save('input/foreground.png')
     background.save('input/background.png')
+    if not os.path.exists('matting/pretrained'):
+        os.mkdir('matting/pretrained')
+        shutil.copy('/content/drive/MyDrive/total-relighting-demo/SGHM-ResNet50.pth','matting/pretrained')
     # Matting
     # Input: input/foreground.png
     # Output: output_matting/fg_mask.png
