@@ -17,15 +17,18 @@ def main(foreground,background):
     # Matting
     # Input: input/foreground.png
     # Output: output_matting/fg_mask.png
-    Matting(image_path='input/foreground.png')
+    #Matting(image_path='input/foreground.png')
+    Matting()
     #Object Placement
     # Input: input/foreground.png, input/background.png, output_matting/fg_mask.png
     # Output: output_object_placement/composite_image.png output_object_placement/composite_mask.png
-    place(foreground='input/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png')
+    #place(foreground='input/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png')
+    place()
     #Harmonization
     # Input: output_object_placement/composite_image.png output_object_placement/composite_mask.png
     # Output: final/harmonized_image.png
-    harmonized_image = get_harmonized(composite_img='output_object_placement/composite_image.png',mask_img='output_object_placement/composite_mask.png')
+    #harmonized_image = get_harmonized(composite_img='output_object_placement/composite_image.png',mask_img='output_object_placement/composite_mask.png')
+    harmonized_image = get_harmonized()
     return harmonized_image
 
     
