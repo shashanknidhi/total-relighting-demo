@@ -13,7 +13,7 @@ from . import utils
 from . import inference
 
 
-def Matting(image_path):
+def Matting(image_path='input/foreground.png'):
 
     model = HumanMatting(backbone='resnet50')
     model = nn.DataParallel(model).cuda().eval()
