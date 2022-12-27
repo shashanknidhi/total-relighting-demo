@@ -149,7 +149,7 @@ def information(comp, mask, bbox, scale):
             new_img_path, new_msk_path]
     return [info]
 
-def place(foreground='input/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png',scale=0.99):
+def place(foreground='output_matting/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png',scale=0.99):
     opt = args()
     scale = scale
     category = opt.category
