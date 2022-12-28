@@ -10,7 +10,7 @@ def compose_images(foreground_path, background_path):
     assert os.path.exists(foreground_path), 'image path does not exist: {}'.format(foreground_path)
     assert os.path.splitext(foreground_path)[1].lower() == '.png', 'foreground must be a .png file'
     # foreground = Image.open(foreground_path)
-    foreground = Image.open(foreground_path)
+    foreground = Image.open(foreground_path).convert('RGBA')
     foreground_alpha = np.array(foreground.getchannel(3))
     #assert np.any(foreground_alpha == 0), 'foreground needs to have some transparency: {}'.format(foreground_path)
     
