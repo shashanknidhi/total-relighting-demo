@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 import torch
 from torchvision import transforms
-from .compose import compose_images
+from compose import compose_images
 from loader import dataset_dict, get_loader
 from loader.utils import gen_composite_image
 
@@ -149,7 +149,7 @@ def information(comp, mask, bbox, scale):
             new_img_path, new_msk_path]
     return [info]
 
-def place(foreground='output_matting/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png',scale=0.99):
+def place(foreground='input/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png',scale=0.99):
     opt = args()
     scale = scale
     category = opt.category
