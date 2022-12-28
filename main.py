@@ -35,7 +35,7 @@ def main(foreground,background):
     sghm = np.repeat(np.asarray(sghm)[:, :, None], 3, axis=2) / 255
     foreground_sghm =  image * sghm
     #convert array to image
-    foreground_sghm = Image.fromarray(foreground_sghm.astype('uint8'), 'RGB')
+    foreground_sghm = Image.fromarray(foreground_sghm.astype('uint8'), 'RGBA')
     foreground_sghm.save('output_matting/foreground.png')
     #Object Placement
     # Input: output_matting/foreground.png, input/background.png, output_matting/fg_mask.png
