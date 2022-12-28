@@ -15,9 +15,9 @@ def main(foreground,background):
     #Save foreground and background images to input dir as input/foreground.png and background.png
     foreground.save('input/foreground.png')
     background.save('input/background.png')
-    if not os.path.exists('matting/pretrained'):
-        os.mkdir('matting/pretrained')
-        shutil.copy('/content/drive/MyDrive/total-relighting-demo/SGHM-ResNet50.pth','matting/pretrained')
+    # if not os.path.exists('matting/pretrained'):
+    #     os.mkdir('matting/pretrained')
+    #     shutil.copy('/content/drive/MyDrive/total-relighting-demo/SGHM-ResNet50.pth','matting/pretrained')
     # Matting
     # Input: input/foreground.png
     # Output: output_matting/fg_mask.png
@@ -41,10 +41,10 @@ def main(foreground,background):
     # Input: output_matting/foreground.png, input/background.png, output_matting/fg_mask.png
     # Output: output_object_placement/composite_image.png output_object_placement/composite_mask.png
     #place(foreground='output_matting/foreground.png',background='input/background.png',fg_mask='output_matting/fg_mask.png')
-    os.mkdir('object_placement/result')
-    os.mkdir('object_placement/result/graconet')
-    os.mkdir('object_placement/result/graconet/models')
-    shutil.copy('/content/drive/MyDrive/total-relighting-demo/11.pth','object_placement/result/graconet/models')
+    # os.mkdir('object_placement/result')
+    # os.mkdir('object_placement/result/graconet')
+    # os.mkdir('object_placement/result/graconet/models')
+    # shutil.copy('/content/drive/MyDrive/total-relighting-demo/11.pth','object_placement/result/graconet/models')
     place()
     #Harmonization
     # Input: output_object_placement/composite_image.png output_object_placement/composite_mask.png
@@ -54,4 +54,12 @@ def main(foreground,background):
     return harmonized_image
 
     
-
+def folder_util(matting_pretrained,obj_placement_pretrained):
+    if not os.path.exists('matting/pretrained'):
+        os.mkdir('matting/pretrained')
+        shutil.copy(matting_pretrained,'matting/pretrained')
+    if not os.path.exists('object_placement/result'):
+        os.mkdir('object_placement/result')
+        os.mkdir('object_placement/result/graconet')
+        os.mkdir('object_placement/result/graconet/models')
+        shutil.copy(obj_placement_pretrained,'object_placement/result/graconet/models')
