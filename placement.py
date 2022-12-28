@@ -153,13 +153,14 @@ def place(foreground='input/foreground.png',background='input/background.png',fg
     opt = args()
     scale = scale
     category = opt.category
-    os.mkdir('dataset')
-    os.mkdir('dataset/background')
-    os.mkdir('dataset/foreground')
-    os.mkdir('dataset/transparent_mask')
-    os.mkdir('dataset/background/person')
-    os.mkdir('dataset/foreground/person')
-    os.mkdir('dataset/transparent_mask/person')
+    if not os.path.exists('dataset'):
+        os.mkdir('dataset')
+        os.mkdir('dataset/background')
+        os.mkdir('dataset/foreground')
+        os.mkdir('dataset/transparent_mask')
+        os.mkdir('dataset/background/person')
+        os.mkdir('dataset/foreground/person')
+        os.mkdir('dataset/transparent_mask/person')
     # path to transparent foreground
     # foreground = f'dataset/transparent_mask/{category}/1.png'
     # foreground = f'input/foreground.png'
