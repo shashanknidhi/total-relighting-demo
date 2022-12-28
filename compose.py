@@ -12,7 +12,7 @@ def compose_images(foreground_path, background_path):
     # foreground = Image.open(foreground_path)
     foreground = Image.open(foreground_path)
     foreground_alpha = np.array(foreground.getchannel(3))
-    assert np.any(foreground_alpha == 0), 'foreground needs to have some transparency: {}'.format(foreground_path)
+    #assert np.any(foreground_alpha == 0), 'foreground needs to have some transparency: {}'.format(foreground_path)
     
     # Make sure the background path is valid and open the image
     assert os.path.exists(background_path), 'image path does not exist: {}'.format(background_path)

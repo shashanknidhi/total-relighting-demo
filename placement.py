@@ -50,9 +50,12 @@ def infer(eval_loader, opt, model=None, repeat=1):
     img_sav_dir = os.path.join(eval_dir, 'images')
     msk_sav_dir = os.path.join(eval_dir, 'masks')
     csv_sav_file = os.path.join(eval_dir, '{}.csv'.format(opt.eval_type))
-    os.makedirs(eval_dir)
-    os.mkdir(img_sav_dir)
-    os.mkdir(msk_sav_dir)
+    if not os.path.exists(eval_dir):
+        os.makedirs(eval_dir)
+    if not os.path.exists(img_sav_dir):
+        os.mkdir(img_sav_dir)
+    if not os.path.exists(msk_sav_dir):
+        os.mkdir(msk_sav_dir)
 
     if model is None:
         from model import GAN
@@ -153,13 +156,14 @@ def place(foreground='input/foreground.png',background='input/background.png',fg
     opt = args()
     scale = scale
     category = opt.category
-    os.mkdir('dataset')
-    os.mkdir('dataset/background')
-    os.mkdir('dataset/foreground')
-    os.mkdir('dataset/transparent_mask')
-    os.mkdir('dataset/background/person')
-    os.mkdir('dataset/foreground/person')
-    os.mkdir('dataset/transparent_mask/person')
+    if not os.path.exists('dataset'):
+        os.mkdir('dataset')
+        os.mkdir('dataset/background')
+        os.mkdir('dataset/foreground')
+        os.mkdir('dataset/transparent_mask')
+        os.mkdir('dataset/background/person')
+        os.mkdir('dataset/foreground/person')
+        os.mkdir('dataset/transparent_mask/person')
     # path to transparent foreground
     # foreground = f'dataset/transparent_mask/{category}/1.png'
     # foreground = f'input/foreground.png'
@@ -181,7 +185,8 @@ def place(foreground='input/foreground.png',background='input/background.png',fg
     eval_loader = get_loader(opt.dst, batch_size=1, num_workers=1, image_size=opt.img_size, shuffle=False, mode_type=opt.eval_type, data_root=opt.data_root, info=info)
     with torch.no_grad():
         infer(eval_loader, opt, model=None, repeat=opt.repeat)
-    os.mkdir('../output_object_placement')
+    if not os.path.exists('output_object_placement'):
+        os.mkdir('output_object_placement')
     image_name = os.listdir('result/graconet/eval/11/images')[0]
     mask_name = os.listdir('result/graconet/eval/11/masks')[0]
     shutil.copy('result/graconet/eval/11/images/'+image_name, '../output_object_placement/composite_image.png')
