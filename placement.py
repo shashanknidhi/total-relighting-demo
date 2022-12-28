@@ -189,8 +189,8 @@ def place(foreground='input/foreground.png',background='input/background.png',fg
         os.mkdir('output_object_placement')
     image_name = os.listdir('result/graconet/eval/11/images')[0]
     mask_name = os.listdir('result/graconet/eval/11/masks')[0]
-    shutil.copy('result/graconet/eval/11/images/'+image_name, '../output_object_placement/composite_image.png')
-    shutil.copy('result/graconet/eval/11/masks/'+mask_name, '../output_object_placement/composite_mask.png')
+    shutil.copy('result/graconet/eval/11/images/'+image_name, 'output_object_placement/composite_image.png')
+    shutil.copy('result/graconet/eval/11/masks/'+mask_name, 'output_object_placement/composite_mask.png')
 
 if __name__ == '__main__':
   place()
