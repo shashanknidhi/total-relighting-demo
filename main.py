@@ -73,8 +73,8 @@ def folder_util(matting_pretrained,obj_placement_pretrained):
     if not os.path.exists('matting/pretrained'):
         os.mkdir('matting/pretrained')
         shutil.copy(matting_pretrained,'matting/pretrained')
-    if not os.path.exists('object_placement/result'):
-        os.mkdir('object_placement/result')
-        os.mkdir('object_placement/result/graconet')
-        os.mkdir('object_placement/result/graconet/models')
-        shutil.copy(obj_placement_pretrained,'object_placement/result/graconet/models')
+    if not os.path.exists('result'):
+        os.mkdir('result')
+        os.mkdir('result/graconet')
+        os.mkdir('result/graconet/models')
+        shutil.copy(obj_placement_pretrained,'result/graconet/models')
