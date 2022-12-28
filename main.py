@@ -5,7 +5,7 @@ from PIL import Image
 import requests
 # Functions: Matting, Obj_placement, harmonization
 from matting.getMatting import Matting
-from object_placement.placement import place
+from placement import place
 from harmonization.main import get_harmonized
 
 #Input : Foreground Image, Background Image
